@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Main page{% endblock %}
+
+{% block caption %}<h1>Main page</h1>{% endblock %}
+
+{% block content %}
+    <div id="content">
+        Hello <b>{{ request.user.username }}</b>,
+        your registration at <b>{{ request.user.date_joined }}</b>,
+        you can <a href="{% url auth_logout %}">logout</a>
+    </div>
+{% endblock %}

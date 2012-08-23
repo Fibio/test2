@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Some page{% endblock %}
+{% block caption %}<h1>Some page</h1>{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        Hello, <b>{{ request.user.username }}</b>,
+        you can <a href="{% url auth_logout %}">logout</a>
+    {%  endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block login %}{% endblock %}
+{% block caption %}<h1>Login</h1>{% endblock %}
+{% block content %}
+    {% if form.errors %}
+    <div class='errorlist'>
+        <p>Your password didn't match. Please try again.</p>
+    </div>
+    {% endif %}
+    {% if partner %}
+        <form method="get" action="{% url partner_login %}?{{ form.as_url_args }}">
+    {% else %}
+        <form method="post" action="{% url auth_login %}">
+    {% endif %}
+    {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+            {% if partner %}
+                <input type="hidden" name="next" value="{{ partner }}" />
+            {% endif %}
+            <input type="submit" value="login" />
+        </form>
+{% endblock %}
