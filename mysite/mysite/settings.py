@@ -143,7 +143,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
-PARTNERS_DOMAINS = ('http://partner.com', 'accounts', 'partner')
+PARTNERS_DOMAINS = ('http://partner.com', 'partner')
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
